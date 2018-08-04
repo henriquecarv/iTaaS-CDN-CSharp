@@ -1,4 +1,5 @@
 ﻿using System;
+using Util;
 
 namespace ConsoleLog
 {
@@ -6,7 +7,16 @@ namespace ConsoleLog
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Agile Content!");
+            var sourceURI = "https://s3.amazonaws.com/uux-itaas-static/minha-cdn-logs/input-01.txt";
+            var targetPath = "./../../output/";
+
+            var mINHACDNParser = new MINHACDNParser();
+            var mINHACDNLogs = mINHACDNParser.ParseLogs(sourceURI);
+
+            var agoraTranspiler = new AgoraTranspiler();
+            agoraTranspiler.TranspileMINHACDN(mINHACDNLogs, targetPath);
+
+            Console.ReadKey();
         }
     }
 }
