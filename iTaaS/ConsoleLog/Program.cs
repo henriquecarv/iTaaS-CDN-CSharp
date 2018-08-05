@@ -8,7 +8,7 @@ namespace ConsoleLog
         static void Main(string[] args)
         {
             var sourceURI = "https://s3.amazonaws.com/uux-itaas-static/minha-cdn-logs/input-01.txt";
-            var targetPath = "./../../output/";
+            var targetPath = "./../output/test.txt";
 
             var mINHACDNParser = new MINHACDNParser();
             var mINHACDNLogs = mINHACDNParser.ParseLogs(sourceURI);
@@ -16,7 +16,7 @@ namespace ConsoleLog
             var agoraTranspiler = new AgoraTranspiler();
             agoraTranspiler.TranspileMINHACDN(mINHACDNLogs, targetPath);
 
-            Console.ReadKey();
+            Console.WriteLine("Log finished transpiling");
         }
     }
 }
