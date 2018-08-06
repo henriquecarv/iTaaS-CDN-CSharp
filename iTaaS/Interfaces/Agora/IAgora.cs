@@ -1,12 +1,11 @@
 using System;
 
-namespace Business.Interface
+namespace iTaaS.Interfaces
 {
-    internal interface IAgoraLog : ILog
+    public interface IAgora : IBase
     {
         DateTime Date { get; set; }
         string Provider { get; }
         int TimeTaken { get; set; }
-        double Version { get; set; }
     }
 }

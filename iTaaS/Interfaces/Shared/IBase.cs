@@ -1,6 +1,6 @@
-namespace Business.Interface
+namespace iTaaS.Interfaces
 {
-    internal interface ILog
+    public interface IBase
     {
         string CacheStatus { get; set; }
         string HTTPMethod { get; set; }
