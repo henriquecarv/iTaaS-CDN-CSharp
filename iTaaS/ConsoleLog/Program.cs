@@ -3,7 +3,7 @@ using Util;
 
 namespace ConsoleLog
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
@@ -17,6 +17,7 @@ namespace ConsoleLog
             var mINHACDNLogs = mINHACDNParser.ParseLogs(sourceURI);
 
             var agoraTranspiler = new AgoraTranspiler();
+						agoraTranspiler.SetAppVersion<Program>();
             agoraTranspiler.TranspileMINHACDN(mINHACDNLogs, targetPath);
 
             Console.WriteLine("Log finished transpiling");
