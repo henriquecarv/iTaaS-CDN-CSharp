@@ -81,9 +81,12 @@ namespace iTaaS.Helpers
                 Directory.CreateDirectory(folderPath);
                 var filename = Path.GetFileName(outPath);
                 var fullPath = Path.Combine(folderPath, filename);
-                using (StreamWriter sw = new StreamWriter(File.Open(fullPath, FileMode.Create)))
+                byte[] fileBytes = new UTF8Encoding(true).GetBytes(file);
+                int bufferSize = 2048;
+
+                using (var fs = new FileStream(fullPath, FileMode.Create, FileAccess.Write, FileShare.None, bufferSize))
                 {
-                    sw.Write(file);
+                    fs.Write(fileBytes, 0, fileBytes.Length);
                 }
             }
             catch (UnauthorizedAccessException)
