@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace iTaaS.Helpers
 {
-    internal class SplitLog
+    public class SplitLog
     {
 
         public List<string> SplitColumnValues(string line)

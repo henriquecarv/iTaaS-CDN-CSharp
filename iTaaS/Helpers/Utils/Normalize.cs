@@ -2,14 +2,14 @@ using System;
 
 namespace iTaaS.Helpers
 {
-    internal class Normalize
+    public class Normalize
     {
         public string GetNewFormat(string file)
         {
             return file.Replace("\"", "").Replace(" ", "|");
         }
 
-        public Uri GetUri(string uri)
+        public Uri ValidateURL(string uri)
         {
             try
             {

@@ -7,17 +7,17 @@ namespace iTaaS.Helpers
 {
     public class MINHACDNParser
     {
-        public List<MINHACDN> GetLogs(string filepath)
+        public List<MINHACDN> GetLogs(string sourceUrl)
         {
             var normalize = new Normalize();
-            var filePath = normalize.GetUri(filepath);
+            var sourcePath = normalize.ValidateURL(sourceUrl);
 
             var io = new IO();
-            var streamedFile = io.StreamFile(filepath.ToString());
-            var readFile = io.ReadFile(streamedFile);
+            var streamedFile = io.StreamFile(sourcePath.ToString());
+            var document = io.ReadFile(streamedFile);
 
             var splitLog = new SplitLog();
-            var lines = splitLog.ListLogLines(readFile);
+            var lines = splitLog.ListLogLines(document);
 
             var logs = new List<MINHACDN>();
             foreach (var line in lines)

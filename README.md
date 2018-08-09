@@ -46,3 +46,28 @@ A sample log file that can be used for testing is available here:
 https://s3.amazonaws.com/uux-itaas-static/minha-cdn-logs/input-01.txt
 
 Beware that what will be analyzed on this exercise is the not only the correction of the code but also code best practices, like OOP, SOLID, unit tests and mocks.
+
+## System Requirements
+* **[.NET Core](https://www.microsoft.com/net/download)** (version >= 2.1).
+
+## Installing
+
+### Ubuntu 18.04
+* dotnet publish AgoraLogger/ -c release -r ubuntu.16.10-x64 -o OUTPUT_FOLDER
+
+### Windows 10
+* dotnet publish AgoraLogger/ -c release -r win10-x64 -o OUTPUT_FOLDER
+
+## Running Application
+
+### Ubuntu 
+* ./AgoraLogger $SOURCE_URL $OUTPUT_PATH
+
+### Windows
+* AgoraLogger.exe $SOURCE_URL $OUTPUT_PATH
+
+## Running Unit Tests
+
+From inside the UnitTest folder, run:
+
+* dotnet test
